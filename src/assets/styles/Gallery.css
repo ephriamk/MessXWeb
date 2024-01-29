@@ -1,0 +1,32 @@
+/* Gallery.css */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px;
+  }
+  
+  .gallery-item {
+    background-size: cover;
+    background-position: center;
+    width: calc(25% - 10px);
+    height: 200px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item.hovered {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-item {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-item {
+      width: 100%;
+    }
+  }
+  
