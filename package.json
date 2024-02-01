@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/three": "^9.7.3",
+    "@react-three/fiber": "^8.15.16",
+    "@types/three": "^0.161.1",
     "aos": "^2.3.4",
     "framer-motion": "^10.18.0",
     "react": "^18.2.0",
@@ -17,7 +20,8 @@
     "react-parallax": "^3.5.1",
     "react-photo-album": "^2.3.0",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "three": "^0.161.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

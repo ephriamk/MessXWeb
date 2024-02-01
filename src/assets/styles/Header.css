@@ -4,19 +4,21 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 5vh;
   /* Change this line */
   /* justify-content: space-between; */
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.2);
   color: #fff;
   box-sizing: border-box;
   z-index: 50;
+
 }
 
 .header .logo {
-  height: 50px;
-  
+  height: 20px;
+
 }
 
 .header nav ul {
@@ -32,4 +34,5 @@
 
 nav {
   width: 10;
+
 }

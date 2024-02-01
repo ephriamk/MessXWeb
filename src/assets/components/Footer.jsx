@@ -11,17 +11,21 @@ import img6 from '../../../public/A&RSolar.png';
 
 
 function Footer() {
+
+  
+  
+  
   return (
-    <footer className="footer">
+    <footer className="footers">
       <h2 className='sponsors'>Our Sponsors!</h2>
-      <div className='footers'>
+      <div className='tag-list scroller__inner'>
         <img src={img2}></img>
         <img src={img4}></img>
         <img src={img5}></img>
         <img src={img6}></img>
       </div>
-      <p>&copy; {new Date().getFullYear()} MESSX. All rights reserved.</p>
-      {/* Social links and other info */}
+      <p className='footerp'>&copy; {new Date().getFullYear()} MESSX. All rights reserved.</p>
+      
     </footer>
   );
 }
