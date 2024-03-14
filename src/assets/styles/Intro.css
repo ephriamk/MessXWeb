@@ -7,14 +7,14 @@
   width: 100%;
   background-color: #000000;
   box-sizing: border-box;
-
+  padding: 1rem;
 }
-/*  #000000, 
-#303030
-#4A4A4A
-#737373
-#1B1811
-*/
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
 
 .title {
   font-size: 2rem;
@@ -27,11 +27,10 @@
   text-align: center;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   outline: none;
-  animation: animate 5s linear infinite
+  animation: animate 5s linear infinite;
 }
 
 @keyframes animate {
-
   0%,
   18%,
   20%,
@@ -44,7 +43,6 @@
     color: #ffeabf;
     box-shadow: none;
   }
-
   18.1%,
   20.1%,
   30%,
@@ -56,46 +54,35 @@
   92.1%,
   100% {
     color: #fff;
-
-    text-shadow: 0 0 10px #ffeabf,
-      0 0 20px #ffeabf,
-      0 0 40px #ffeabf,
-      0 0 80px #ffeabf,
-      0 0 160px #ffeabf,
-
+    text-shadow: 0 0 10px #ffeabf, 0 0 20px #ffeabf, 0 0 40px #ffeabf,
+      0 0 80px #ffeabf, 0 0 160px #ffeabf;
   }
-
 }
-
 
 .description {
   font-size: 1.2rem;
   font-weight: 200;
-  width: 50%;
+  width: 100%;
+  max-width: 800px;
   text-align: center;
-
-
 }
 
-
-
-.logo {
-  /* Create a light behind the logo */
-
-}
-
-/* @keyframes printEffect {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
   }
-
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
+  .description {
+    font-size: 1rem;
   }
 }
 
-.title {
-  animation: printEffect 3s ease-in-out forwards;
-} */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+}
