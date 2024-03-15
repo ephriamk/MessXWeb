@@ -68,7 +68,7 @@
   .product-image img {
     max-width: 100%;
   }
-  
+/*   
   .energy-bars {
     display: flex;
     justify-content: center;
@@ -82,6 +82,59 @@
     background-color: #ff4081;
     border-radius: 4px;
     animation: pulseBar 1s infinite;
+  } */
+
+  .model-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #ff6b6b;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .loading-text {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .energy-bars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .energy-bar {
+    width: 8px;
+    height: 40px;
+    background-color: #ff6b6b;
+    margin: 0 4px;
+    animation: energy-bar-animation 1s infinite;
+  }
+  
+  @keyframes energy-bar-animation {
+    0% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(1.5);
+    }
+    100% {
+      transform: scaleY(1);
+    }
   }
   
   @keyframes pulseBar {
@@ -125,6 +178,7 @@
     margin-top: 10px;
     background-color: #3f51b5;
     color: #fff;
+    z-index: 2;
   }
 
     .btn-secondary:hover {

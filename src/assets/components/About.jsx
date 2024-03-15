@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import "../styles/About.css";
 import { Canvas } from "@react-three/fiber";
 import { PresentationControls, Float, useProgress } from "@react-three/drei";
@@ -6,20 +6,16 @@ import { PresentationControls, Float, useProgress } from "@react-three/drei";
 import Model2 from "./Model2";
 import Model from "./Model";
 
-const ModelLoader = ({ children }) => {
-  const { progress } = useProgress();
+const ModelLoader = () => {
+  const { active, progress, errors, item, loaded, total } = useProgress()
+
+  //  
+  
 
   return (
     <div className="model-container">
-      {progress < 100 ? (
-        <div className="energy-bars">
-          <div className="energy-bar"></div>
-          <div className="energy-bar"></div>
-          <div className="energy-bar"></div>
-        </div>
-      ) : (
-        children
-      )}
+      <div className="loading-bar" style={{ width: `${progress}%` }}></div>
+      <p className="loading-text">Loading: {progress.toFixed(2)}%</p>
     </div>
   );
 };
@@ -33,6 +29,7 @@ const ServicesSection = () => {
 
   const handleCloseClick = () => {
     setSelectedProduct(null);
+    console.log("closed");
   };
 
   let handleClick = (e) => {
@@ -59,6 +56,7 @@ const ServicesSection = () => {
             >
               <h4 className="product-title">Mini Grid | X</h4>
               {selectedProduct === "miniGrid" ? (
+                <Suspense fallback={<ModelLoader />}>
                 <Canvas camera={{ position: [0, 1, 1] }}>
                   <ambientLight />
                   <PresentationControls snap={true}>
@@ -67,6 +65,7 @@ const ServicesSection = () => {
                     </Float>
                   </PresentationControls>
                 </Canvas>
+              </Suspense>
               ) : (
                 <div className="product-image">
                   {/* Replace with your mini grid image */}
@@ -99,16 +98,16 @@ const ServicesSection = () => {
             >
               <h4 className="product-title">POD | X</h4>
               {selectedProduct === "podX" ? (
-                <Canvas camera={{ position: [0, 1, 1] }}>
-                  <Suspense>
+                <Suspense fallback={<ModelLoader />}>
+                  <Canvas camera={{ position: [0, 1, 1] }}>
                     <ambientLight />
                     <PresentationControls snap={true}>
                       <Float>
                         <Model2 position={[0, 0, 0]} rotation={[0, 0, 0]} />
                       </Float>
                     </PresentationControls>
-                  </Suspense>
-                </Canvas>
+                  </Canvas>
+                </Suspense>
               ) : (
                 <div className="product-image">
                   {/* Replace with your POD X image */}

@@ -12,7 +12,7 @@ import PricingPage from "./assets/components/PricingPage";
 import ThreeJSOne from "./assets/components/ThreeJSOne";
 import ContactForm from "./assets/components/ContactForm";
 import Deployments from "./assets/components/Deployments";
-
+import { useEffect } from "react";
 import "./App.css";
 import About from "./assets/components/About";
 import ElectricPulsesContainer from "./assets/components/ElectricPulseContainer";
@@ -20,6 +20,9 @@ import ElectricPulsesContainer from "./assets/components/ElectricPulseContainer"
 // ... import other components
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="app">
       <ElectricPulsesContainer />

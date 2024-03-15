@@ -6,7 +6,9 @@ import { MeshBasicMaterial } from "three";
 import { useControls } from "leva";
 
 export default function Model(props) {
-  const fbx = useLoader(FBXLoader, "./5kpac.fbx");
+  const fbx = useLoader(FBXLoader, "./5kpac.fbx", null, (xhr) => {
+    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+  });
   const { state, size, camera } = useThree();
   const scale = size.width < 600 ? 0.02 : 0.05;
   const aspect = size.width / size.height;
