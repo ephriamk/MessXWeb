@@ -7,15 +7,22 @@ import Model2 from "./Model2";
 import Model from "./Model";
 
 const ModelLoader = () => {
-  const { active, progress, errors, item, loaded, total } = useProgress()
+  const { progress } = useProgress();
 
-  //  
-  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // console.log(`Loading progress: ${progress.toFixed(2)}%`);
+    }, 100);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [progress]);
 
   return (
     <div className="model-container">
       <div className="loading-bar" style={{ width: `${progress}%` }}></div>
-      <p className="loading-text">Loading: {progress.toFixed(2)}%</p>
+      <p className="loading-text">Generating...</p>
     </div>
   );
 };
@@ -42,7 +49,7 @@ const ServicesSection = () => {
   return (
     <section className="services-section">
       <div className="container">
-        <div className="energy-strip"></div>
+        {/* <div className="energy-strip"></div> */}
         <h3 className="section-title">Product Line-Up</h3>
         <div
           className={`products ${selectedProduct ? "product-selected" : ""}`}
@@ -57,28 +64,28 @@ const ServicesSection = () => {
               <h4 className="product-title">Mini Grid | X</h4>
               {selectedProduct === "miniGrid" ? (
                 <Suspense fallback={<ModelLoader />}>
-                <Canvas camera={{ position: [0, 1, 1] }}>
-                  <ambientLight />
-                  <PresentationControls snap={true}>
-                    <Float>
-                      <Model position={[0, 0, 0]} rotation={[0, 0, 0]} />
-                    </Float>
-                  </PresentationControls>
-                </Canvas>
-              </Suspense>
+                  <Canvas camera={{ position: [0, 1, 1] }}>
+                    <ambientLight />
+                    <PresentationControls snap={true}>
+                      <Float>
+                        <Model position={[0, 0, 0]} rotation={[0, 0, 0]} />
+                      </Float>
+                    </PresentationControls>
+                  </Canvas>
+                </Suspense>
               ) : (
                 <div className="product-image">
                   {/* Replace with your mini grid image */}
-                  <img src="path/to/minigrid-image.jpg" alt="Mini Grid X" />
+                  {/* <img src="path/to/minigrid-image.jpg" alt="Mini Grid X" /> */}
                 </div>
               )}
-
-              <p className="product-description">
+              {selectedProduct === "miniGrid" ? null : ( <p className="product-description">
                 MESSX offers a mobile power system that utilizes solar energy
                 with the capacity to power homes, commercial and industrial
                 buildings, telecommunications, disaster relief, charge electric
                 vehicles and more.
-              </p>
+              </p>)}
+             
               {selectedProduct !== "miniGrid" && (
                 <button
                   className="btn btn-primary"
@@ -131,7 +138,7 @@ const ServicesSection = () => {
         {selectedProduct && (
           <div className="buttonsBottom">
             <button className="btn btn-secondary" onClick={handleClick}>
-              Check Price
+              Pre-Order
             </button>
             <button className="btn btn-secondary" onClick={handleCloseClick}>
               Close

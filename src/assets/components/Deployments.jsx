@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/Deployments.css';
-import AnimatedArrow from './AnimatedArrow';
+
 
 const Deployments = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,6 +72,9 @@ const Deployments = () => {
   return (
     <div className="deployments-container" onClick={closeModal}>
       {/* Existing sections */}
+      <h1 className="deployments-header">
+  Here are some of the events we have <span class="glow">powered</span>
+</h1>
       <section className="carousel-section">
         <Slider {...settings}>
           {images.map((image, index) => (
@@ -82,6 +85,7 @@ const Deployments = () => {
         </Slider>
       </section>
 
+      
       {isModalOpen && (
         <div className="modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

@@ -1,6 +1,6 @@
 .services-section {
     padding: 80px 0;
-    background: linear-gradient(180deg,#333, black );
+    background: linear-gradient(180deg, black,#333 );
 
     text-align: center;
   }
@@ -41,7 +41,8 @@
   .products {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 10%; 
+     
     
   }
   
@@ -52,7 +53,11 @@
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     z-index: 2;
+    height: 30vh;
+    
   }
+
+  
   
   .product-title {
     font-size: 24px;
@@ -166,12 +171,12 @@
   }
   
   .btn-primary {
-    background-color: #ff4081;
+    background-color: #303f9f;
     color: #fff;
   }
   
   .btn-primary:hover {
-    background-color: #e91e63;
+    background-color: #3f51b5;
   }
 
   .btn-secondary {
@@ -190,3 +195,17 @@
     justify-content: center;
     gap: 20px;
   }
+
+  .product {
+    transition: transform 0.3s ease-out, opacity 0.5s ease-in-out;
+    opacity: 1; /* Make sure your card is fully visible by default */
+  }
+  
+  .hidden {
+    opacity: 0; /* This class will make the card transparent */
+    transform: scale(0.95); /* Slightly shrink the card to give a nice effect */
+    pointer-events: none; /* Disable interactions with the hidden card */
+  }
+  
+
+ 
